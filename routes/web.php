@@ -42,5 +42,6 @@ Route::middleware(['auth'])->group(function () {
     Route::controller(PenilaianController::class)->prefix('penilaian')->group(function () {
         Route::get('/', 'penilaian');
         Route::post('/get', 'getPenilaian');
+        Route::post('/update', 'updatePenilaian');
     });
 });
