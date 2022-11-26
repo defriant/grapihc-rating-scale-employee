@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\PenilaianController;
 use Illuminate\Support\Facades\Route;
@@ -27,8 +28,9 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [AuthController::class, 'logout']);
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
+    Route::controller(DashboardController::class)->prefix('dashboard')->group(function () {
+        Route::get('/', 'dashboard');
+        Route::post('/chart-data', 'chartData');
     });
 
     Route::controller(KaryawanController::class)->prefix('karyawan')->group(function () {

@@ -8,29 +8,6 @@ use Illuminate\Http\Request;
 
 class PenilaianController extends Controller
 {
-    protected $kriteria = [
-        [
-            'key' => 'C1',
-            'label' => 'Target Kerja'
-        ],
-        [
-            'key' => 'C2',
-            'label' => 'Kehadiran'
-        ],
-        [
-            'key' => 'C3',
-            'label' => 'Kedisiplinan'
-        ],
-        [
-            'key' => 'C4',
-            'label' => 'Kecekatan'
-        ],
-        [
-            'key' => 'C5',
-            'label' => 'Kompetensi'
-        ],
-    ];
-
     public function penilaian()
     {
         return view('penilaian', ['kriteria' => $this->kriteria]);
@@ -64,7 +41,7 @@ class PenilaianController extends Controller
                 'nip' => $karyawan->nip,
                 'nama' => $karyawan->nama,
                 'penilaian' => $n_kriteria,
-                'total' => (float) number_format((float)$n_total, 2)
+                'total' => number_format((float)$n_total, 2, '.', '')
             ];
         }
 

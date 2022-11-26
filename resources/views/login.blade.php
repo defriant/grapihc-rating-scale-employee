@@ -3,8 +3,8 @@
 <div class="left">
     <div class="content">
         <div class="header">
-            <div class="logo text-center"><img src="{{ asset('assets/img/smk6.png') }}" class="login-logo"></div>
-            <p class="lead">Login to Your Account</p>
+            <div class="logo text-center"><img src="{{ asset('assets/img/logo_phd.png') }}" class="login-logo"></div>
+            <p class="lead">Login as admin</p>
         </div>
         <form class="form-auth-small" method="POST" action="/login-attempt">
             {{ csrf_field() }}
@@ -23,14 +23,31 @@
             <div class="form-group clearfix">
             </div>
             <button type="submit" class="btn btn-primary btn-block btn-login">LOGIN</button>
+            <br>
+            <div class="auth-box-btm">
+                <div>
+                    <hr>
+                </div>
+                <span>or</span>
+                <div>
+                    <hr>
+                </div>
+            </div>
+            <a href="#" class="lihat-nilai-link">
+                <button type="button" class="btn btn-block btn-default">
+                    <i class="far fa-analytics"></i>
+                    &nbsp;
+                    <span>Lihat nilai karyawan</span>
+                </button>
+            </a>
         </form>
     </div>
 </div>
 <div class="right">
     <div class="overlay"></div>
     <div class="content text">
-        <h1 class="heading">Lorem ipsum dolor sit amet.</h1>
-        <p>Lorem, ipsum dolor.</p>
+        <h1 class="heading">Sistem Penilaian Karyawan</h1>
+        <p>Pizza Hut</p>
     </div>
 </div>
 @endsection

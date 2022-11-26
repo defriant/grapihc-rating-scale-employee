@@ -1,6 +1,5 @@
+document.title = 'Pizza Hut - Penilaian Karyawan'
 const kriteria = $('#kriteria').data('kriteria')
-
-console.log(kriteria);
 
 $('#periode-penilaian').datepicker({
     changeMonth: true,

@@ -1,3 +1,5 @@
+document.title = 'Pizza Hut - Data Karyawan'
+
 // ===== GET =====
 function getKaryawan() {
     ajaxRequest.get({ url: '/karyawan/get' }).then(res => {

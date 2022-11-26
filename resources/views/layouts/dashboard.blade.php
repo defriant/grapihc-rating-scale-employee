@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Simple Additive Weighting</title>
+    <title></title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/toastr/toastr.min.css') }}">
     <!-- Env Color -->
     <link rel="stylesheet" href="{{ asset('assets/css/envColor.css') }}">
-    <script src="{{ asset('assets/scripts/envColor.js') }}" defer></script>
+    <script src="{{ asset('assets/scripts/envColor.js') }}"></script>
     {{-- Datatime picker --}}
     <link rel="stylesheet" href="{{ asset('assets/css/jquery.datetimepicker.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/yearpicker.css') }}">
@@ -26,8 +26,8 @@
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
     <!-- ICONS -->
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/apple-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/img/favicon.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/img/favicon.ico') }}">
     <style>
         .ui-datepicker-calendar {
             display: none;
@@ -43,7 +43,7 @@
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="brand">
-                <a href="/"><img src="{{ asset('assets/img/smk6.png') }}" class="img-responsive logo"></a>
+                <a href="/"><img src="{{ asset('assets/img/logo_phd.png') }}" class="img-responsive logo"></a>
             </div>
             <div class="container-fluid">
                 <div class="navbar-btn">
@@ -72,20 +72,11 @@
                             <a href="/dashboard" class="{{ Request::is('dashboard') ? 'active' : '' }}"><i class="lnr lnr-home"></i> <span>Dashboard</span></a>
                         </li>
                         <li>
-                            <a href="/karyawan" class="{{ Request::is('karyawan') ? 'active' : '' }}"><i class="lnr lnr-home"></i> <span>Data Karyawan</span></a>
+                            <a href="/karyawan" class="{{ Request::is('karyawan') ? 'active' : '' }}"><i class="fal fa-users"></i> <span>Data Karyawan</span></a>
                         </li>
                         <li>
-                            <a href="/penilaian" class="{{ Request::is('penilaian') ? 'active' : '' }}"><i class="lnr lnr-home"></i> <span>Penilaian</span></a>
+                            <a href="/penilaian" class="{{ Request::is('penilaian') ? 'active' : '' }}"><i class="fal fa-chart-line"></i> <span>Penilaian</span></a>
                         </li>
-                        {{-- <li>
-                            <a href="/pengadaan-asset" class="{{ Request::is('pengadaan-asset') ? 'active' : '' }}"><i class="lnr lnr-home"></i> <span>Pengadaan Asset</span></a>
-                        </li>
-                        <li>
-                            <a href="/kriteria" class="{{ Request::is('kriteria') ? 'active' : '' }}"><i class="fal fa-tasks"></i> <span>Kriteria</span></a>
-                        </li>
-                        <li>
-                            <a href="/penilaian-vendor" class="{{ Request::is('penilaian-vendor') ? 'active' : '' }}"><i class="fal fa-chart-line"></i> <span>Penilaian Vendor</span></a>
-                        </li> --}}
                     </ul>
                 </nav>
             </div>
@@ -117,6 +108,10 @@
     <script src="{{ asset('assets/vendor/toastr/toastr.min.js') }}"></script>
     <script src="{{ asset('assets/scripts/klorofil-common.js') }}"></script>
     <script src="{{ asset('assets/scripts/main.js') }}"></script>
+
+    @if (Request::is('dashboard'))
+    <script src="{{ asset('assets/pages/dashboard.js') }}"></script>
+    @endif
 
     @if (Request::is('karyawan'))
     <script src="{{ asset('assets/pages/karyawan.js') }}"></script>
