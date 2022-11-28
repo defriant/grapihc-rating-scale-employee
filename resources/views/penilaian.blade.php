@@ -6,6 +6,9 @@
             {{-- Penilaian --}}
             <div class="panel-heading">
                 <h3 class="panel-title">Penilaian Karyawan</h3>
+                <div class="right no-print">
+                    <button type="button" id="btn-print-hasil"><i class="far fa-print"></i>&nbsp; Print</button>
+                </div>
             </div>
             <div class="panel-body">
                 <p>Periode penilaian :</p>
@@ -20,6 +23,10 @@
                     <h5 style="margin-top: 2.5rem">Loading data</h5>
                 </div>
                 <br>
+                <div class="loader" id="null-karyawan" style="display: none;">
+                    <i class="fas fa-ban" style="font-size: 5rem; opacity: .5"></i>
+                    <h5 style="margin-top: 2.5rem; opacity: .75">Tidak ada data karyawan yang ditemukan.</h5>
+                </div>
                 <table class="table" id="table-penilaian" style="display: none;">
                     <thead>
                         <tr id="thead-penilaian">

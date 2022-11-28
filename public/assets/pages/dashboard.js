@@ -83,12 +83,22 @@ function updatePenilaianChart(res) {
 }
 
 function getChartData() {
+    $('#null-karyawan').hide()
+
     ajaxRequest.post({
         url: '/dashboard/chart-data',
         data: {
             periode: $('#periode-penilaian').val()
         }
-    }).then(res => !isSetPenilaianChart ? createPenilaianChart(res) : updatePenilaianChart(res))
+    }).then(res => {
+        if (res.data.length === 0) {
+            $('#chart-loader').hide()
+            $('#null-karyawan').show()
+            return
+        }
+
+        !isSetPenilaianChart ? createPenilaianChart(res) : updatePenilaianChart(res)
+    })
 }
 
 getChartData()

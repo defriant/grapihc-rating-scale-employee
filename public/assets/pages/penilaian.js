@@ -1,6 +1,12 @@
 document.title = 'Pizza Hut - Penilaian Karyawan'
 const kriteria = $('#kriteria').data('kriteria')
 
+let tPrintHeader = `<th style="width: 30%"></th>`
+kriteria.forEach(v => tPrintHeader += `<th style="text-align: center;">${v.label}</th>`)
+$('#print-thead-penilaian').html(tPrintHeader)
+
+$('#print-thead-penilaian')
+
 $('#periode-penilaian').datepicker({
     changeMonth: true,
     changeYear: true,
@@ -12,6 +18,7 @@ $('#periode-penilaian').datepicker({
 })
 
 function getPenilaian() {
+    $('#btn-print-hasil').hide()
     $('#modalUpdatePenilaian #periode').val($('#periode-penilaian').val())
 
     const data = {
@@ -23,6 +30,18 @@ function getPenilaian() {
         data: data
     }).then(res => {
         let tData = ``
+        let tDataPrint = ``
+
+        if (res.data.length === 0) {
+            $('#penilaian-karyawan-loader').hide()
+            $('#null-karyawan').show()
+            $('#table-penilaian').hide()
+            $('#btn-print-hasil').hide()
+            return
+        }
+
+        $('#null-karyawan').hide()
+        $('#btn-print-hasil').show()
 
         function createTdNilai(nilai) {
             switch (nilai) {
@@ -64,9 +83,15 @@ function getPenilaian() {
                             </button>
                         </td>
                     </tr>`
+
+            tDataPrint += `<tr>
+                        <td>${v.nama}</td>
+                        ${dataPenilaian}
+                    </tr>`
         })
 
         $('#tbody-penilaian').html(tData)
+        $('#print-tbody-penilaian').html(tDataPrint)
         $('#penilaian-karyawan-loader').hide()
         $('#table-penilaian').show()
     })
@@ -114,4 +139,8 @@ $('#btn-update-penilaian').on('click', function () {
         showToast('success', res.message)
         $('#modalUpdatePenilaian').modal('hide')
     })
+})
+
+$('#btn-print-hasil').on('click', function () {
+    window.print()
 })

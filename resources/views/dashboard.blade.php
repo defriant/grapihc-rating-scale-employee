@@ -29,6 +29,11 @@
             <div class="loader4"></div>
             <h5 style="margin-top: 2.5rem">Loading data</h5>
         </div>
+        <div class="loader" id="null-karyawan" style="display: none;">
+            <br>
+            <i class="fas fa-ban" style="font-size: 5rem; opacity: .5"></i>
+            <h5 style="margin-top: 2.5rem; opacity: .75">Tidak ada data karyawan yang ditemukan.</h5>
+        </div>
         <div class="row" id="row-penilaian" style="display: none">
             <div class="col-md-8">
                 <canvas id="chart-penilaian"></canvas>

@@ -40,7 +40,7 @@
 </head>
 
 <body>
-    <div id="wrapper">
+    <div id="wrapper" class="no-print">
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="brand">
                 <a href="/"><img src="{{ asset('assets/img/logo_phd.png') }}" class="img-responsive logo"></a>
@@ -96,6 +96,22 @@
                 <p class="copyright">&copy; {{ date('Y') }}. All Rights Reserved.</p>
             </div>
         </footer>
+    </div>
+
+    <div id="printarea">
+        <img src="{{ asset('assets/img/logo_phd.png') }}" class="print-logo">
+        <div class="print-title">
+            <h3>Penilaian Karyawan</h3>
+            <span>Periode November 2022</span>
+        </div>
+        <div class="print-table">
+            <table class="table table-bordered" id="table-penilaian" style="">
+                <thead style="height: 30px">
+                    <tr id="print-thead-penilaian"></tr>
+                </thead>
+                <tbody id="print-tbody-penilaian"></tbody>
+            </table>
+        </div>
     </div>
     
     <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>

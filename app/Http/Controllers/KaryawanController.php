@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Karyawan;
+use App\Models\Penilaian;
 use Illuminate\Http\Request;
 
 class KaryawanController extends Controller
@@ -54,6 +55,8 @@ class KaryawanController extends Controller
         $data = Karyawan::find($request->id);
 
         $data->delete();
+
+        Penilaian::where('id_karyawan', $request->id)->delete();
 
         return response()->json([
             'error' => false,
