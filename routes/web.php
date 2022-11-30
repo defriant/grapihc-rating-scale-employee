@@ -23,6 +23,10 @@ Route::middleware(['guest'])->group(function () {
     })->name('index');
 
     Route::post('/login-attempt', [AuthController::class, 'login_attempt']);
+
+    Route::controller(KaryawanController::class)->prefix('karyawan/nilai')->group(function () {
+        Route::get('/', 'checkNilai');
+    });
 });
 
 Route::middleware(['auth'])->group(function () {

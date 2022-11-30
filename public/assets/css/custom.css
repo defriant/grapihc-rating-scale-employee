@@ -315,3 +315,27 @@ tfoot {
 #asset .status.ditolak {
     color: #c91d1d;
 }
+
+.panel-nilai {
+    width: 80%;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.panel-nilai #btn-search-penilaian {
+    background-color: #00a0f0;
+    border-color: #00a0f0;
+    padding: 0 1.5rem 0 1.5rem;
+    margin: 0;
+}
+
+.panel-inputs {
+    width: 60%;
+    display: flex;
+    gap: 1rem;
+}
+
+.penilaian-logo {
+    width: 60px;
+}

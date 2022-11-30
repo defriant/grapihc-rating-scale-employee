@@ -28,10 +28,7 @@
 	<div id="wrapper">
 		<div class="vertical-align-wrap">
 			<div class="vertical-align-middle">
-				<div class="auth-box ">
-                    @yield('content')
-					<div class="clearfix"></div>
-				</div>
+				@yield('content')
 			</div>
 		</div>
 	</div>

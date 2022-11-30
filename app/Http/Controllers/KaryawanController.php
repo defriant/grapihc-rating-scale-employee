@@ -63,4 +63,9 @@ class KaryawanController extends Controller
             'message' => "Data karyawan $data->nip berhasil di hapus"
         ]);
     }
+
+    public function checkNilai()
+    {
+        return view('check-nilai');
+    }
 }
