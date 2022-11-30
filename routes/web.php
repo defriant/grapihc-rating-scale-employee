@@ -26,6 +26,7 @@ Route::middleware(['guest'])->group(function () {
 
     Route::controller(KaryawanController::class)->prefix('karyawan/nilai')->group(function () {
         Route::get('/', 'checkNilai');
+        Route::post('/get', 'checkNilaiGet');
     });
 });
 

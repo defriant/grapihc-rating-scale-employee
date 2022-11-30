@@ -66,6 +66,54 @@ class KaryawanController extends Controller
 
     public function checkNilai()
     {
-        return view('check-nilai');
+        return view('check-nilai', ['kriteria' => $this->kriteria]);
+    }
+
+    public function checkNilaiGet(Request $request)
+    {
+        $karyawan = Karyawan::where('nip', $request->nip)->first();
+
+        if (!$karyawan) return response()->json([
+            'error' => true,
+            'message' => 'Data karyawan tidak ditemukan !'
+        ]);
+
+        $n_kriteria = [];
+        $n_total = 0;
+
+        foreach ($this->kriteria as $kriteria) {
+            $nilai = $karyawan->penilaian()->where('periode', $request->periode)->where('kriteria', $kriteria['key'])->first();
+
+            $n_kriteria[] = [
+                'key' => $kriteria['key'],
+                'label' => $kriteria['label'],
+                'nilai' => $nilai ? (int) $nilai->nilai : '-'
+            ];
+
+            if ($nilai) {
+                $n_total += $nilai->nilai;
+            } else {
+                return response()->json([
+                    'error' => true,
+                    'message' => 'Data penilaian belum dibuat !'
+                ]);
+            }
+        }
+
+        $n_total = $n_total / count($this->kriteria);
+
+        $data = [
+            'id' => $karyawan->id,
+            'nip' => $karyawan->nip,
+            'nama' => $karyawan->nama,
+            'divisi' => $karyawan->divisi,
+            'penilaian' => $n_kriteria,
+            'total' => number_format((float)$n_total, 2, '.', '')
+        ];
+
+        return response()->json([
+            'error' => false,
+            'data' => $data
+        ]);
     }
 }

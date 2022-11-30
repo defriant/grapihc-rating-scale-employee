@@ -17,7 +17,7 @@
     <!-- Env Color -->
     <link rel="stylesheet" href="{{ asset('assets/css/envColor.css') }}">
     <script src="{{ asset('assets/scripts/envColor.js') }}"></script>
-    {{-- Datatime picker --}}
+    {{-- Datetime picker --}}
     <link rel="stylesheet" href="{{ asset('assets/css/jquery.datetimepicker.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/yearpicker.css') }}">
     <!-- MAIN CSS -->

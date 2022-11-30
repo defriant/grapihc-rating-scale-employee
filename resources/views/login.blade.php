@@ -1,4 +1,9 @@
 @extends('layouts.guest')
+
+@section('head')
+<title>Pizza Hut - Login</title>
+@endsection
+
 @section('content')
 <div class="auth-box">
     <div class="left">
