@@ -10,7 +10,7 @@
         <div class="content">
             <div class="header">
                 <div class="logo text-center"><img src="{{ asset('assets/img/logo_phd.png') }}" class="login-logo"></div>
-                <p class="lead">Login as admin</p>
+                <p class="lead">Login sebagai admin</p>
             </div>
             <form class="form-auth-small" method="POST" action="/login-attempt">
                 {{ csrf_field() }}
@@ -34,7 +34,7 @@
                     <div>
                         <hr>
                     </div>
-                    <span>or</span>
+                    <span>atau</span>
                     <div>
                         <hr>
                     </div>
